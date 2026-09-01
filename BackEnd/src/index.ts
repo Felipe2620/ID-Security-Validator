@@ -31,6 +31,6 @@ app.get('/api/health', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`⚡️ Servidor Backend escuchando en el puerto ${PORT}`);
+app.listen(Number(PORT), '0.0.0.0', () => {
+  console.log(`⚡️ Servidor Backend escuchando en http://0.0.0.0:${PORT}`);
 });

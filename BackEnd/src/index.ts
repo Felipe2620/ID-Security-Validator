@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { pool } from './config/db';
+import { verifyTenantConnection } from './controllers/securityController';
 
 dotenv.config();
 
@@ -30,6 +31,8 @@ app.get('/api/health', async (req, res) => {
     });
   }
 });
+
+app.get('/api/tenant/test-connection', verifyTenantConnection);
 
 app.listen(Number(PORT), '0.0.0.0', () => {
   console.log(`⚡️ Servidor Backend escuchando en http://0.0.0.0:${PORT}`);
